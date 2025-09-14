@@ -1,17 +1,19 @@
+// Seleciona o container
 const globeEl = document.getElementById('globe-container');
 
-const globe = Globe()(globeEl)
+// Inicializa o globo
+const GlobeInstance = Globe()(globeEl)
   .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-day.jpg')
   .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
   .backgroundImageUrl('https://unpkg.com/three-globe/example/img/night-sky.png')
-  .width(window.innerWidth)
-  .height(window.innerHeight)
-  .autoRotate(false) // Globo parado, só rotaciona com mouse
   .showAtmosphere(true)
-  .atmosphereAltitude(0.2);
+  .atmosphereAltitude(0.2)
+  .autoRotate(false)  // Globo parado, gira só com mouse
+  .width(window.innerWidth)
+  .height(window.innerHeight);
 
-// Ajustar tamanho ao redimensionar a janela
+// Ajusta tamanho ao redimensionar a janela
 window.addEventListener('resize', () => {
-  globe.width(window.innerWidth);
-  globe.height(window.innerHeight);
+  GlobeInstance.width(window.innerWidth);
+  GlobeInstance.height(window.innerHeight);
 });
